@@ -70,10 +70,230 @@ vector<int> spiralOrder(vector<vector<int> >& matrix)
 
 
 
+
+
 // =================================================================================================
 //  =================================================================================================
 //  ==================================================================================================
 
+// MATRIX  
+// =================================================================================================
+//  =================================================================================================
+//  ==================================================================================================
+ 
+// Possible knight move at a time
+
+#include<bits/stdc++.h> 
+using namespace std; 
+
+int possibleMoves(vector<vector<int>> grid) {
+    int count =0; 
+    
+    int dx[8] = {1,2,1,-1,-2,-2,-1,2}; 
+    int dy[8] = {2,-1,-2,-2,-1,1,2,1}; 
+    
+    int p = 0, q = 0; 
+    int m = grid.size(), n = grid[0].size(); 
+    
+    for(int i =0; i<8; ++i) {
+        int newX = p + dx[i]; 
+        int newY = q + dy[i]; 
+            
+        if(newX>=0 && newX<m && newY>=0 && newY<n && grid[newX][newY]==0) 
+                count++; 
+    }
+    
+    return count; 
+}
+
+
+
+int main() {
+    
+    vector<vector<int>> res(8, vector(8,0)); 
+    
+    cout<<possibleMoves(res); 
+    
+    return 0; 
+    
+}
+// ........................................................................................
+
+
+// Problem 2 The Knight's tour Problem 
+
+
+
+#include<bits/stdc++.h> 
+using namespace std; 
+
+int ktUtil(int x, int y, int movi, vector<vector<int>> &sol, int dx[8], int dy[8]);
+bool isSafe(int x, int y, vector<vector<int>> chess) {
+     return (x>=0 && x<8 && y>=0 && y<8 && chess[x][y]==-1); 
+}
+
+int KnightTour(vector<vector<int>> &chessBoard) {
+    
+    int dx[8] ={2,2,-2,-1,-2,-2,-1,1}; 
+    int dy[8] ={1,-1,1,-2,-1,1,2,2}; 
+    
+    int movi = 1; 
+    chessBoard[0][0] = 0; 
+    
+    if(ktUtil(0,0,movi,chessBoard,dx,dy)==0)
+      return 0; 
+     
+     return 1; 
+    
+    
+}
+
+int ktUtil(int x, int y, int movi, vector<vector<int>> &sol, int dx[8], int dy[8]) {
+    
+    
+    // int next_x, next_y; 
+    
+    if(8*8==movi) return 1; 
+    
+    
+    for(int k =0; k<8; ++k) {
+        int next_x = dx[k] + x; 
+        int next_y = dy[k] + y; 
+       
+       if(isSafe(next_x, next_y,sol)==1) {
+           sol[next_x][next_y] = movi; 
+           if(ktUtil(next_x,next_y,movi+1,sol,dx,dy)) return 1; 
+           else {
+               sol[next_x][next_y] = -1;  
+           }
+       } 
+    }
+    return -1; 
+}
+
+
+
+int main() {
+    
+    vector<vector<int>> res(8, vector(8,-1)); 
+    
+    cout<<KnightTour(res)<<endl; 
+    
+    return 0; 
+    
+}
+// Link -> backtarcking -> https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/
+//................................................................................................
+
+
+// Problem 3.  Minimum steps to reach target Knight tour 
+// method 1 BFS
+// C++ program to find minimum steps to reach to
+// specific cell in minimum moves by Knight
+#include <bits/stdc++.h>
+using namespace std;
+
+// structure for storing a cell's data
+struct cell {
+	int x, y;
+	int dis;
+	cell() {}
+	cell(int x, int y, int dis)
+		: x(x), y(y), dis(dis)
+	{
+	}
+};
+
+// Utility method returns true if (x, y) lies
+// inside Board
+bool isInside(int x, int y, int N)
+{
+	if (x >= 1 && x <= N && y >= 1 && y <= N)
+		return true;
+	return false;
+}
+
+// Method returns minimum step
+// to reach target position
+int minStepToReachTarget(
+	int knightPos[], int targetPos[],
+	int N)
+{
+	// x and y direction, where a knight can move
+	int dx[] = { -2, -1, 1, 2, -2, -1, 1, 2 };
+	int dy[] = { -1, -2, -2, -1, 1, 2, 2, 1 };
+
+	// queue for storing states of knight in board
+	queue<cell> q;
+
+	// push starting position of knight with 0 distance
+	q.push(cell(knightPos[0], knightPos[1], 0));
+
+	cell t;
+	int x, y;
+	bool visit[N + 1][N + 1];
+
+	// make all cell unvisited
+	for (int i = 1; i <= N; i++)
+		for (int j = 1; j <= N; j++)
+			visit[i][j] = false;
+
+	// visit starting state
+	visit[knightPos[0]][knightPos[1]] = true;
+
+	// loop until we have one element in queue
+	while (!q.empty()) {
+		t = q.front();
+		q.pop();
+
+		// if current cell is equal to target cell,
+		// return its distance
+		if (t.x == targetPos[0] && t.y == targetPos[1])
+			return t.dis;
+
+		// loop for all reachable states
+		for (int i = 0; i < 8; i++) {
+			x = t.x + dx[i];
+			y = t.y + dy[i];
+
+			// If reachable state is not yet visited and
+			// inside board, push that state into queue
+			if (isInside(x, y, N) && !visit[x][y]) {
+				visit[x][y] = true;
+				q.push(cell(x, y, t.dis + 1));
+			}
+		}
+	}
+}
+
+// Driver code to test above methods
+int main()
+{
+	int N = 30;
+	int knightPos[] = { 1, 1 };
+	int targetPos[] = { 30, 30 };
+	cout << minStepToReachTarget(knightPos, targetPos, N);
+	return 0;
+}
+
+// .... method 2 ..... DFS........
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// =================================================================================================
+//  =================================================================================================
+//  ==================================================================================================
 // Dynamic Programming 
 // =================================================================================================
 //  =================================================================================================
