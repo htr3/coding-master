@@ -9,33 +9,42 @@
  
 // Problem 1. Spiral matrix 
   
-void print(int arr[R][C], int i, int j, int m, int n)
+vector<int> spiralOrder(vector<vector<int> >& matrix)
 {
-    // If i or j lies outside the matrix
-    if (i >= m or j >= n)
-        return;
+    int m = matrix.size(), n = matrix[0].size();
+    vector<int> ans;
   
-    // Print First Row
-    for (int p = j; p < n; p++)
-        cout << arr[i][p] << " ";
+    if (m == 0)
+        return ans;
   
-    // Print Last Column
-    for (int p = i + 1; p < m; p++)
-        cout << arr[p][n - 1] << " ";
+    vector<vector<bool> > seen(m, vector<bool>(n, false));
+    int dr[] = { 0, 1, 0, -1 };
+    int dc[] = { 1, 0, -1, 0 };
   
-    // Print Last Row, if Last and
-    // First Row are not same
-    if ((m - 1) != i)
-        for (int p = n - 2; p >= j; p--)
-            cout << arr[m - 1][p] << " ";
+    int x = 0, y = 0, di = 0;
   
-    // Print First Column,  if Last and
-    // First Column are not same
-    if ((n - 1) != j)
-        for (int p = m - 2; p > i; p--)
-            cout << arr[p][j] << " ";
+    // Iterate from 0 to m * n - 1
+    for (int i = 0; i < m * n; i++) {
+        ans.push_back(matrix[x][y]);
+        // on normal geeksforgeeks ui page it is showing
+        // 'ans.push_back(matrix[x])' which gets copied as
+        // this only and gives error on compilation,
+        seen[x][y] = true;
+        int newX = x + dr[di];
+        int newY = y + dc[di];
   
-    print(arr, i + 1, j + 1, m - 1, n - 1);
+        if (0 <= newX && newX < m && 0 <= newY && newY < n
+            && !seen[newX][newY]) {
+            x = newX;
+            y = newY;
+        }
+        else {
+            di = (di + 1) % 4;
+            x += dr[di];
+            y += dc[di];
+        }
+    }
+    return ans;
 }
 // ling-> https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/
 
