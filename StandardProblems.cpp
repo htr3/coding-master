@@ -427,7 +427,56 @@ void printSubstrings(string str)
     }
 }
 complexity O(n*n) ; 
-//
+//......................................................................
+// problem 2. print all subsequnces of string 
+
+void printSubsequence(string input, string output)
+{
+    // Base Case
+    // if the input is empty print the output string
+    if (input.empty()) {
+        cout << output << endl;
+        return;
+    }
+ 
+    // output is passed with including
+    // the Ist character of
+    // Input string
+    printSubsequence(input.substr(1), output + input[0]);
+ 
+    // output is passed without
+    // including the Ist character
+    // of Input string
+    printSubsequence(input.substr(1), output);
+}
+// Complexity(O(2^n)) 
+.....................................................................
+	
+// Parmutation of Given String 
+	
+	void permute(string a, int l, int r) 
+{ 
+    // Base case 
+    if (l == r) 
+        cout<<a<<endl; 
+    else
+    { 
+        // Permutations made 
+        for (int i = l; i <= r; i++) 
+        { 
+  
+            // Swapping done 
+            swap(a[l], a[i]); 
+  
+            // Recursion called 
+            permute(a, l+1, r); 
+  
+            //backtrack 
+            swap(a[l], a[i]); 
+        } 
+    } 
+} 
+
 
 
 
