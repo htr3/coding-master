@@ -579,4 +579,89 @@ void printSubsequence(string input, string output)
 //  ==================================================================================================
 
 
+  #include<bits/stdc++.h> 
+using namespace std; 
 
+
+const int AlPHABET_SIZE = 26; 
+
+// trie Node 
+class TrieNode {
+    public : 
+        TrieNode * children[AlPHABET_SIZE]; 
+        bool isEndOfWord; 
+}; 
+
+
+// Return new trie node (initialize with NULL) 
+
+TrieNode* getNode(void) {
+    TrieNode *pNode = new TrieNode; 
+    
+    pNode->isEndOfWord = false; 
+     
+      for(int i =0; i<AlPHABET_SIZE; i++) 
+        pNode->children[i] = NULL; 
+        
+        return pNode; 
+}
+
+// insert Element in trie 
+
+void insert(TrieNode* root, string key) {
+    TrieNode *pCrowl = root; 
+    for(int i =0; i<key.length(); i++) 
+    {
+        int index = key[i]-'a'; 
+        if(!pCrowl->children[index]) 
+             pCrowl->children[index] = getNode(); 
+             
+        pCrowl = pCrowl->children[index]; 
+    }
+    
+    pCrowl->isEndOfWord = true; 
+}
+
+// Search Node in Trie 
+
+bool search(TrieNode *root, string key) {
+    TrieNode *pCrowl = root; 
+    
+    for(int i =0; i<key.length(); i++) {
+        int index = key[i]-'a'; 
+        if(!pCrowl->children[index]) 
+            return false; 
+        
+        pCrowl =     (pCrowl->children[index]); 
+    }
+    return pCrowl->isEndOfWord; 
+}
+
+// Driver 
+
+int main() {
+    
+    cout<<"Hello Trie"<<endl; 
+    vector<string> key= {
+        "the", "a", "there", "answer", "any", "by", "bye", "their"
+    };
+    
+    int n = key.size(); 
+    
+    TrieNode *root = getNode(); 
+     
+     // construct TrieNode
+     for(int i =0; i<n; i++) 
+        insert(root,key[i]); 
+        
+    search(root, "the")? cout << "Yes\n" : cout << "No\n";
+    search(root, "these")? cout << "Yes\n" :
+                           cout << "No\n";
+    search(root, "their")? cout << "Yes\n" :
+                         cout << "No\n";
+    search(root, "thaw")? cout << "Yes\n" :
+                           cout << "No\n";
+        
+    return 1; 
+}
+	    
