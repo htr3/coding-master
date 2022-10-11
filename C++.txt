@@ -1,0 +1,594 @@
+======================================================================================================================================
+OOPS : Object Oriented Programming is a methodology or paradigm to design a program using the concepts of classes and objects.
+ 
+Class : Class is a user defined data type which defines its properties and its functions.It is a user-defined data type, which holds its own data members
+ and member functions, which can be accessed and used by creating an instance of that class.
+
+Object : When a class is defined no memory is allocated but when its object is created memory is allocated.
+All the members of the class can be accessed through object.Object is a run-time entity. It is an instance of the class.
+======================================================================================================================================
+Abstraction in C++
+Data abstraction is one of the most essential and important feature of object oriented programming in C++. Abstraction means displaying only essential
+ information and hiding the details. Data abstraction refers to providing only essential information about the data to the outside world, hiding
+ the background details or implementation.
+
+Abstraction using Classes : We can implement Abstraction in C++ using classes. Class helps us to group data members and member functions
+ using available access specifiers. A Class can decide which data member will be visible to outside world and which is not.
+
+Abstraction using Header files : One more type of abstraction in C++ can be header files. For example, consider the pow() method present in 
+math.h header file. Whenever we need to calculate power of a number, we simply call the function pow() present in the math.h header file 
+and pass the numbers as arguments without knowing the underlying algorithm according to which the function is actually calculating power of numbers.
+======================================================================================================================================
+Encapsulation :
+Encapsulation is the process of combining data and functions into a single unit called class. In Encapsulation, the data is not accessed directly;
+ it is accessed through the functions present inside the class. In simpler words, attributes of the class are kept private and public , 
+getter and setter methods are provided to manipulate these attributes.
+======================================================================================================================================
+Inheritance :
+Inheritance is a process in which one object acquires all the properties and behaviors of its parent object automatically. 
+In such a way, you can reuse,extend or modify the attributes and behaviors which are defined in other classes. 
+In C++, the class which inherits the members of another class is called derived class and the class whose members are inherited is called base class.
+Types of Inheritance :
+1. Single inheritance : When one class inherits another class, it is known as single level inheritance
+2. Multiple inheritance : Multiple inheritance is the process of deriving a new class that inherits the attributes from two or more classes.
+3. Hierarchical inheritance : Hierarchical inheritance is defined as the process of deriving more than one class from a base class.
+4. Multilevel inheritance : Multilevel inheritance is a process of deriving a class from another derived class.
+5. Hybrid inheritance : Hybrid inheritance is a combination of simple, multiple inheritance and hierarchical inheritance.
+======================================================================================================================================
+Polymorphism :
+The word polymorphism means having many forms. In simple words, we can define polymorphism as the ability of a message to be displayed in more than one form.
+A real life example of polymorphism, a person at the same time can have different characteristics.
+ Like a man at the same time is a father, a husband, an employee. So the same person posses different behavior in different situations. 
+
+Types of Polymorphism :
+1. Compile Time Polymorphism (Static):
+Compile Time Polymorphism : The polymorphism which is implemented at the compile time is known as compile-time polymorphism.
+#Function Overloading
+#Operator Overloading
+
+2. Runtime Polymorphism (Dynamic):
+Run Time Polymorphism : The polymorphism which is implemented at the run time is known as run-time polymorphism.
+#Function Overriding
+#Virtual Function
+
+
+================================================================================================================
+Runtime polymorphism is also known as dynamic polymorphism. Function overriding is an example of runtime polymorphism. 
+Function overriding means when the child class contains the method which is already present in the parent class. 
+Hence, the child class overrides the method of the parent class. In case of function overriding, parent and child classes both contain 
+the same function with a different definition. The call to the function is determined at runtime is known as runtime polymorphism.
+
+====================================================================================================
+# Function Overloading in C++
+Function overloading is a feature of object oriented programming where two or more functions can have the same name but different parameters.
+In Function Overloading “Function” name should be the same and the arguments should be different.
+
+==========================================================================================================
+# Operator Overloading in C++
+
+	We can make operators to work for user defined classes. This means C++ has the ability to provide the operators with a special meaning for a data type, 
+	this ability is known as operator overloading.We can overload an operator ‘+’ in a class like String so that we can concatenate two strings by just using +.
+
+
+#Virtual Function
+	A virtual function is a member function which is declared within a base class and is re-defined (Overridden) by a derived class.Basically, 
+	a virtual function is used in the base class in order to ensure that the function is overridden. This especially applies to cases where a pointer of 
+	base class points to an object of a derived class.When you refer to a derived class object using a pointer or a reference to the base class, you can call 
+	a virtual function for that object and execute the derived class’s version of the function. 
+
+    Virtual functions ensure that the correct function is called for an object, regardless of the type of reference (or pointer) used for function call.
+    They are mainly used to achieve Runtime polymorphism
+    Functions are declared with a virtual keyword in base class.
+    The resolving of function call is done at Run-time.
+
+
+    If object of that class is created then a virtual pointer(VPTR) is inserted as a data member of the class to point to VTABLE of that class. 
+	For each new object created, a new virtual pointer is inserted as a data member of that class.
+    Irrespective of object is created or not, a static array of function pointer called VTABLE where each cell contains the address of each virtual 
+	function contained in that class.
+======================================================================================================================================
+Abstract Class :
+Data abstraction is one of the most essential and important feature of object oriented programming in C++.
+ Abstraction means displaying only essential information and hiding the details. Data abstraction refers to providing
+ only essential information about the data to the outside world, hiding the background details or implementation.
+	Consider a real life example of a man driving a car.
+	Abstraction using Classes:
+	Abstraction in Header files:
+	Abstraction using access specifiers
+Advantages of Data Abstraction:
+
+	Helps the user to avoid writing the low level code
+	Avoids code duplication and increases reusability.
+	Can change internal implementation of class independently without affecting the user.
+	Helps to increase security of an application or program as only important details are provided to the user.
+
+
+Interface :
+	An interface is a description of what member functions must a class, which inherits this interface, implement. 
+	In other words, an interface describes behavior of the class. You can imagine an interface as a list of functions that must be implemented by a class.
+	An interface can inherit functions from one or more base interface. It can contain only public member functions.
+	 In contrast, it cannot contain constructor, destructor, data members, and static member functions.
+Abstraction using Classes:
+	We can implement Abstraction in C++ using classes. The class helps us to group data members and member functions using available access specifiers.
+	 A Class can decide which data member will be visible to the outside world and which is not.
+
+Abstraction in Header files:
+	One more type of abstraction in C++ can be header files. For example, consider the pow() method present in math.h header file.
+	 Whenever we need to calculate the power of a number, we simply call the function pow() present in the math.h header file and pass
+	 the numbers as arguments without knowing the underlying algorithm according to which the function is actually calculating the power of numbers.
+
+======================================================================================================================================
+Storage Classes :
+	Storage Classes are used to describe the features of a variable/function. These features basically include the scope, 
+	visibility and life-time which help us to trace the existence of a particular variable during the runtime of a program.Lifetime refers to the 
+	period during which the variable remains active and visibility refers to the module of a program in which the variable is accessible.
+
+C++ uses 5 storage classes : 
+    (1) auto
+    (2) register
+    (3) extern
+    (4) static
+    (5) mutable
+======================================================================================================================================
+Advantages of OOPs – 
+ 
+	It models the real world very well. 
+ 
+	With OOP, programs are easy to understand and maintain. 
+ 
+	OOP offers code reusability. Already created classes can be reused without having to write them again. 
+ 
+	OOP facilitates the quick development of programs where parallel development of classes is possible. 
+	 
+	With OOP, programs are easier to test, manage and debug. 
+
+===================================================================================================================================
+Disadvantages of OOP – 
+	With OOP, classes sometimes tend to be over-generalized. 
+ 
+	The relations among classes become superficial at times. 
+ 
+	The OOP design is tricky and requires appropriate knowledge. Also, one needs to do proper planning and design for OOP programming. 
+ 
+	To program with OOP, the programmer needs proper skills such as design, programming, and thinking in terms of objects and classes, etc. 
+=================================================================================================================================================
+Message Passing
+	Objects communicate with one another by sending and receiving information to each other. 
+	A message for an object is a request for execution of a procedure and therefore will invoke a 
+	function in the receiving object that generates the desired results. Message passing involves specifying the name of the object, 
+	the name of the function and the information to be sent.
+
+Access Modifiers in C++
+
+====================================================
+Types Of Inheritance:-
+Single inheritance               
+		In single inheritance, a class is allowed to inherit from only one class. i.e. one subclass is inherited by one base class only.
+Multilevel inheritance
+	         In this type of inheritance, a derived class is created from another derived class
+Multiple inheritance
+		ultiple Inheritance is a feature of C++ where a class can inherit from more than one class. i.e one subclass is inherited from more than one
+Hierarchical inheritance
+		A derived class with two base classes and these two base classes have one common base class is called multipath inheritance. 
+		Ambiguity can arise in this type of inheritance. 
+		There are 2 Ways to Avoid this Ambiguity: 
+		1) Avoiding ambiguity using the scope resolution operator: Using the scope resolution operator we can manually specify the path from which
+	        data member a will be accessed
+		2) Avoiding ambiguity using the virtual base class: 
+Hybrid inheritance
+		
+====================================================
+A. Function Overriding
+	Function Overriding occurs when a derived class has a definition for one of the member functions of the base class. That base function is said to be overridden.
+======================================================
+Virtual Function
+	A virtual function is a member function that is declared in the base class using the keyword virtual and is re-defined (Overriden) in the derived class. 
+
+	Some Key Points About Virtual Functions:
+	Virtual functions are Dynamic in nature. 
+	They are defined by inserting the keyword “virtual” inside a base class and are always declared with a base class and overridden in a child class
+	A virtual function is called during Runtime
+===============================================================
+
+======================================================
+Constructors in C++
+	A constructor is a special type of member function of a class which initializes objects of a class. In C++, Constructor is automatically 
+	called when object(instance of class) create. It is special member function of the class because it does not have any return type.
+	A constructor is different from normal functions in following ways:
+	Constructor has same name as the class itself
+	Constructors don’t have return type
+	A constructor is automatically called when an object is created.
+	It must be placed in public section of class.
+	If we do not specify a constructor, C++ compiler generates a default constructor for object.
+
+Types of Constructors :
+	1. Default Constructors: Default constructor is the constructor which doesn’t take any argument. It has no parameters.
+	2. Parameterized Constructors: It is possible to pass arguments to constructors. Typically, these arguments help initialize an object when it is created. 
+	To create a parameterized constructor, simply add parameters to it the way you would to any other function. 
+	When you define the constructor’s body, use the parameters to initialize the object. 
+	3. Copy Constructor: A copy constructor is a member function which initializes an object using another object of the same class.
+======================================================================================================================================
+Destructors in C++
+	Destructor is an instance member function which is invoked automatically whenever an object is going to be destroyed. Meaning, a destructor is the last
+	function that is going to be called before an object is destroyed.
+	The thing is to be noted here, if the object is created by using new or the constructor uses new to allocate memory which resides in the heap
+	memory or the free store, the destructor should use delete to free the memory.   
+	Properties of Destructor:
+	    Destructor function is automatically invoked when the objects are destroyed.
+	    It cannot be declared static or const.
+ 	   The destructor does not have arguments.
+  	  It has no return type not even void.
+  	  An object of a class with a Destructor cannot become a member of the union.
+   	 A destructor should be declared in the public section of the class.
+   	 The programmer cannot access the address of destructor.
+	How are destructors different from a normal member function? 
+	Destructors have same name as the class preceded by a tilde (~) 
+	Destructors don’t take any argument and don’t return anything
+======================================================================================================================================
+S.NO.	Abstraction	                                                                                        Encapsulation
+1.	Abstraction is the process or method of gaining the information.         	While encapsulation is the process or method to contain the information.
+2.	In abstraction, problems are solved at the design or interface level.	While in encapsulation, problems are solved at the implementation level.
+3.	Abstraction is the method of hiding the unwanted information.		Whereas encapsulation is a method to hide the data in a single entity or unit along with a method to protect information from outside.
+4.	We can implement abstraction using abstract class and interfaces.	Whereas encapsulation can be implemented using by access modifier i.e. private, protected and public.
+5.	In abstraction, implementation complexities are hidden using abstract classes and interfaces.	While in encapsulation, the data is hidden using methods of getters and setters.
+6.	The objects that help to perform abstraction are encapsulated.		Whereas the objects that result in encapsulation need not be abstracted.
+======================================================================================================================================
+example of operater overloading 
+	1. an example of operator overloading is in iostream operator<< or another example would be when 'making' functors
+	2. to add functionalities of different classes. 
+	3. to parform operation on two object. for example -> adding of two complex no. using objects.
+================================================================================================================================================================
+What is Templets  in c++ ? 
+
+
+
+
+================================================================================================================================================================
+Can we make the copy constructor private? 
+
+	Yes, a copy constructor can be made private. When we make a copy constructor private in a class, objects of that class become non-copyable.
+	 This is particularly useful when our class has pointers or dynamically allocated resources. In such situations, we can either write our own 
+	copy constructor like the above String example or make a private copy constructor so that users get compiler errors rather than surprises at runtime. 
+
+=============================================================================================================
+Why we use copy constructor ? 
+ Copy constructor is used to initialize the members of a newly created object by copying the members of an already existing object.
+=================================================================
+Why argument to a copy constructor must be passed as a reference? 
+
+	A copy constructor is called when an object is passed by value. Copy constructor itself is a function. So if we pass an argument by value in a copy 
+	constructor
+	 a call to the copy constructor would be made to call the copy constructor which becomes a non-terminating chain of calls.
+	 Therefore compiler doesn’t allow parameters to be passed by value.
+==============================================================
+Why argument to a copy constructor should be const?
+
+	One reason for passing const reference is, that we should use const in C++ wherever possible so that objects are not accidentally modified. 
+	This is one good reason for passing reference as const, but there is more to it than
+
+=============================================================
+What is a destructor? 
+	Destructor is an instance member function which is invoked automatically whenever an object is going to be destroyed. Meaning, a destructor 
+	is the last function that is going to be called before an object is destroyed.
+
+	Destructor is also a special member function like constructor. Destructor destroys the class objects created by constructor. 
+	Destructor has the same name as their class name preceded by a tilde (~) symbol.
+	It is not possible to define more than one destructor. 
+	The destructor is only one way to destroy the object create by constructor. Hence destructor can-not be overloaded.
+	Destructor neither requires any argument nor returns any value.
+	It is automatically called when object goes out of scope. 
+	Destructor release memory space occupied by the objects created by constructor.
+	In destructor, objects are destroyed in the reverse of an object creation.
+=================================
+NOTE - > if the object is created by using new or the constructor uses new to allocate memory which resides in the heap memory or the free store,
+ the destructor should use delete to free the memory. 
+===============================
+Can there be more than one destructor in a class? 
+No, there can only one destructor in a class with classname preceded by ~, no parameters and no return type.
+===================================================
+When do we need to write a user-defined destructor? 
+If we do not write our own destructor in class, compiler creates a default destructor for us. 
+The default destructor works fine unless we have dynamically allocated memory or pointer in class.
+ When a class contains a pointer to memory allocated in class, we should write a destructor to release memory before the class instance is destroyed.
+ This must be done to avoid memory leak.
+=============================================================
+Can a destructor be virtual? 
+Yes, In fact, it is always a good idea to make destructors virtual in base class when we have a virtual function. 
+Deleting a derived class object using a pointer of base class type that has a non-virtual destructor results in undefined behavior.
+
+Properties of Destructor:
+
+Destructor function is automatically invoked when the objects are destroyed.
+It cannot be declared static or const.
+The destructor does not have arguments.
+It has no return type not even void.
+An object of a class with a Destructor cannot become a member of the union.
+A destructor should be declared in the public section of the class.
+The programmer cannot access the address of destructor.
+When is destructor called? 
+A destructor function is called automatically when the object goes out of scope: 
+(1) the function ends 
+(2) the program ends 
+(3) a block containing local variables ends 
+(4) a delete operator is called  
+==============================================================
+How are destructors different from a normal member function? 
+	Destructors have same name as the class preceded by a tilde (~) 
+	Destructors don’t take any argument and don’t return anything
+==================================================================
+Does C++ compiler create default constructor when we write our own?
+	No, the C++ compiler doesn’t create a default constructor when we initialize our own,
+ 	the compiler by default creates a default constructor for every class; But, if we define our own constructor, 
+	the compiler doesn’t create the default constructor. This is so because the default constructor does not take any argument and if two default 
+	constructors are created, it is difficult for the compiler which default constructor should be called.
+======================================================================
+In C++, a Copy Constructor may be called for the following cases: 
+
+	1) When an object of the class is returned by value. 
+	2) When an object of the class is passed (to a function) by value as an argument. 
+	3) When an object is constructed based on another object of the same class. 
+	4) When the compiler generates a temporary object. 
+
+===========================================================
+What is the significance of the default constructor? 
+
+They are used to create objects, which do not have any specific initial value. 
+=============================================================
+Is a default constructor automatically provided?
+	If no constructors are explicitly declared in the class, a default constructor is provided automatically by the compiler. 
+
+===============================================================
+Can a default constructor contain a default argument?
+
+	Yes, a constructor can contain default argument with default values for an object.
+==============================================================================================
+Will there be any code inserted by the compiler to the user implemented default constructor behind the scenes?
+
+	The compiler will implicitly declare the default constructor if not provided by the programmer, will define it when in need.
+ 	The compiler-defined default constructor is required to do certain initialization of class internals
+=============================================================================================
+Private Destructor in C++ 
+	Destructors with the access modifier as private are known as Private Destructors. 
+	Whenever we want to prevent the destruction of an object, we can make the destructor private.
+======================================================================
+What is the use of private destructor?
+
+	Whenever we want to control the destruction of objects of a class, we make the destructor private. 
+	For dynamically created objects, it may happen that you pass a pointer to the object to a function and the function deletes the object.
+ 	If the object is referred after the function call, the reference will become dangling.
+=========================================================================================================
+an a constructor be private in C++ ?
+	Yes, Constructor can be defined in private section of class
+===============================================================================
+How to use Constructors in private section?
+
+Using Friend Class : If we want that class should not be instantiated by anyone else but only by a friend class.
+
+Using Singleton design pattern: When we want to design a singleton class. This means instead of creating several objects of class, 
+the system is driven by a single object or a very limited number of objects.
+Named Constructor Idiom : Since constructor has same name as of class, different constructors are differentiated by their parameter list,
+ but if numbers of constructors is more, then implementation can become error prone.
+With the Named Constructor Idiom, you declare all the class’s constructors in the private or protected sections, 
+and then for accessing objects of class, you create public static functions.
+
+
+
+=========================================================================================
+The compiler also creates a copy constructor if we don’t write our own copy constructor. 
+Unlike the default constructor, the body of the copy constructor created by the compiler is not empty, 
+it copies all data members of the passed object to the object which is being created.
+===========================================================================================
+What happens when we write only a copy constructor – does the compiler create a default constructor?
+The compiler doesn’t create a default constructor if we write any constructor even if it is a copy constructor.
+===============================================================================================================
+What happens when we write a normal constructor and don’t write a copy constructor?
+
+The compiler creates a copy constructor if we don’t write our own. The compiler creates it even if we have written other constructors in a class.
+=======================================================================
+Why copy constructor argument should be const in C++?
+When we create our own copy constructor, we pass an object by reference and we generally pass it as a const reference. 
+One reason for passing const reference is, we should use const in C++ wherever possible so that objects are not accidentally modified
+
+============================================================================================================================================
+
+		                                 FUNCTION  
+============================================================================================================================================
+
+Function Overloading in C++
+Function overloading is a feature of object-oriented programming where two or more functions 
+can have the same name but different parameters. When a function name is overloaded with different jobs it is called Function Overloading.
+ In Function Overloading “Function” name should be the same and the arguments should be different.
+========================================================================
+Functions that cannot be overloaded in C++
+1) Function declarations that differ only in the return type. 
+Member function declarations with the same name and the name parameter-type-list cannot be overloaded if any of them is a static member function declaration
+3) Parameter declarations that differ only in a pointer * versus an array [] are equivalent.
+
+====================================================================================
+Why is Function overloading not possible with different return types? 
+
+Function overloading comes under the compile-time polymorphism. During compilation, the function signature is checked. So, functions can be overloaded,
+ if the signatures are not the same. The return type of a function has no effect on function overloading, 
+therefore the same function signature with different return type will not be overloaded. 
+================================================================================
+Function Overriding (achieved at run time)
+It is the redefinition of base class function in its derived class with same signature i.e return type and parameters. 
+It can only be done in derived class.
+=====================================================================
+
+Virtual Functions and Runtime Polymorphism in C++
+
+A virtual function is a member function that is declared in the base class using the keyword virtual and is re-defined (Overriden) 
+in the derived class. It tells the compiler to perform late binding where the compiler matches the object with the right called function
+ and executes it during the runtime. This technique of falls under Runtime Polymorphism.
+==========================================================
+What is the use? 
+Virtual functions allow us to create a list of base class pointers and call methods of any of the derived 
+classes without even knowing the kind of derived class object
+================================================
+Real-Life Example to Understand the Implementation of Virtual Function
+Let the code has a simple base class Employee, the class contains virtual functions like raiseSalary(), transfer(), promote(), etc. 
+Different types of employees like Managers, Engineers, etc., may have their own implementations of the virtual functions present in base class Employee. 
+=================================================================================
+In our complete software, we just need to pass a list of employees everywhere and call appropriate functions without even knowing the
+ type of employee. For example, we can easily raise the salary of all employees by iterating through the list of employees. Every type of
+ employee may have its own logic in its class, but we don’t need to worry about them because if raiseSalary() is present for a specific employee type,
+ only that function would be called.
+===================================================================
+
+
+Default Arguments and Virtual Function in C++
+Default Arguments are the values provided during function declaration, such that values can be automatically assigned if no argument is passed to them. 
+In case any value is passed the default value is overridden and it becomes a parameterized argument.
+
+=================================================================================================
+Can Static Functions Be Virtual in C++?
+In C++, a static member function of a class cannot be virtual. 
+Virtual functions are invoked when you have a pointer or reference to an instance of a class.
+ Static functions aren’t tied to the instance of a class but they are tied to the class. C++ doesn’t have pointers-to-class, 
+so there is no scenario in which you could invoke a static function virtually.
+static member function cannot be const and volatile. Following code also fails in compilation,
+
+==================================================================================================
+Virtual Destructor
+Deleting a derived class object using a pointer of base class type that has a non-virtual destructor results in undefined behavior.
+ To correct this situation, the base class should be defined with a virtual destructor
+Making base class destructor virtual guarantees that theobject of derived class is destructed properly,
+ i.e., both base class and derived class destructors are called.
+
+
+Advanced C++ | Virtual Constructor
+==================================================
+
+Can we make a class constructor virtual in C++ to create polymorphic objects?
+No. C++ being a statically typed (the purpose of RTTI is different) language, it is meaningless to the C++ compiler to create an object polymorphically.
+ The compiler must be aware of the class type to create the object. In other words,
+ what type of object to be created is a compile-time decision from the C++ compiler perspective.
+ If we make a constructor virtual, the compiler flags an error. In fact, except inline, no other keyword is allowed in the declaration of the constructor. 
+===============================================================================================================
+Advanced C++ | Virtual Copy Constructor.
+
+
+Can Virtual Functions be Private in C++?
+A virtual function can be private as C++ has access control, 
+but not visibility control. As mentioned virtual functions can be overridden 
+by the derived class but under all circumstances will only be called within the base class.
+
+
+==========================================================================================================
+Can Virtual Functions be Inlined in C++?
+Whenever a virtual function is called using a base class reference or pointer it cannot be inlined because
+ the call is resolved at runtime, but whenever called using the object (without reference or pointer) of that class,
+ can be inlined because the compiler knows the exact class of the object at compile time.
+
+
+
+======================================================================================================================
+Inline functions
+Inline functions are used to replace the function calling location with the definition of the inline function at compile time.
+ They are used for efficiency. The whole idea behind the inline functions is that whenever an inline function is 
+called code of the inline function gets inserted or substituted at the point of the inline function call at compile time.
+ Inline functions are very useful when small functions are frequently used and called in a program many times. 
+
+By default, all the functions defined inside the class are implicitly or automatically considered as inline except virtual functions. 
+
+Note: inline is a request to the compiler and its compilers choice to do inlining or not.
+
+==============================================================================================================================================
+Pure Virtual Functions and Abstract Classes in C++
+
+Sometimes implementation of all function cannot be provided in a base class because we don’t know the implementation. Such a class is called abstract class. 
+
+1) A class is abstract if it has at least one pure virtual function. 
+2) We can have pointers and references of abstract class type. 
+3) If we do not override the pure virtual function in derived class, then derived class also becomes abstract class. 
+4) An abstract class can have constructors. 
+5) An abstract class in C++ can also be defined using struct keyword.
+
+===========================================================================================
+Can a destructor be pure virtual in C++? 
+Yes, it is possible to have a pure virtual destructor. 
+Pure virtual destructors are legal in standard C++ and one of the most important things to remember
+ is that if a class contains a pure virtual destructor, it must provide a function body for the pure virtual destructor. 
+
+===========================================================================================
+Why a pure virtual function requires a function body?
+
+The reason is that destructors (unlike other functions) are not actually ‘overridden’,
+ rather they are always called in the reverse order of the class derivation. 
+This means that a derived class destructor will be invoked first, then the base class destructor will be called.
+ If the definition of the pure virtual destructor is not provided, then what function body will be called during object destruction?
+ Therefore the compiler and linker enforce the existence of a function body for pure virtual destructors. 
+
+Note: Only Destructors can be Virtual.
+ Constructors cannot be declared as virtual, this is because if you try to override a constructor 
+by declaring it in a base/super class and call it in the derived/sub class with same functionalities 
+it will always give an error as overriding means a feature that lets us to use a method from the parent class in the child class which is not possible. 
+
+
+===============================================================================================================================================================
+					Inheritence 
+==============================================================================================================================================================
+What all is inherited from parent class in C++?
+Following are the things that a derived class inherits from its parent. 
+1) Every data member that is defined in the parent class (although such members may not always be accessible in the derived class!).
+2) Every ordinary member function of the parent class (although such members may not always be accessible in the derived class!).
+3) The same initial data layout as of the base class. 
+=================================================================================================================
+Following are the properties which a derived class doesn’t inherit from its parent class : 
+1) The base class’s constructors and destructor. 
+2) The base class’s friend functions.
+3) Overloaded operators of the base class.
+==================================================================================================================
+Multiple Inheritance in C++
+
+Multiple Inheritance is a feature of C++ where a class can inherit from more than one classes. 
+ The constructors of inherited classes are called in the same order in which they are inherited.
+ For example, in the following program, B’s constructor is called before A’s constructor.
+
+Eg: 
+
+(i) A CHILD class is derived from FATHER and MOTHER class
+(ii) A PETROL class is derived from LIQUID and FUEL class.
+=================================================================================================================
+The diamond problem The diamond problem occurs when two superclasses of a class have a common base class
+
+
+Object Slicing in C++
+When a derived class object is assigned to a base class object in C++, the derived class object’s extra attributes are 
+sliced off (not considered) to generate the base class object; and this whole process is termed object slicing. 
+In simple words, when extra components of a derived class are sliced or not used and the priority is given to the 
+base class’s object this is termed object slicing. 
+
+In C++, a derived class object can be assigned to a base class object, but the other way is not possible.
+ To tackle this slicing problem we can use a dynamic pointer.
+
+Moreover, Object slicing happens when a derived class object is assigned to a base class object, and additional attributes
+ of a derived class object are sliced off to form the base class object.
+==================================================================================================================
+Simulating final Class in C++
+
+======================================================================================
+Can a C++ class have an object of self type?
+A class declaration can contain static object of self type, it can also have pointer to self type, but it cannot have a non-static object of self type.
+If a non-static object is member then declaration of class is incomplete and compiler has no way to find out size of the objects of the class.
+Static variables do not contribute to the size of objects. So no problem in calculating size with static variables of self type.
+For a compiler, all pointers have a fixed size irrespective of the data type they are pointing to, so no problem with this also.
+
+================================================================================================================================
+Static data members in C++
+
+Static data members are class members that are declared using static keywords. A static member has certain special characteristics. These are:
+
+Only one copy of that member is created for the entire class and is shared by all the objects of that class, no matter how many objects are created.
+It is initialized before any object of this class is being created, even before main starts.
+It is visible only within the class, but its lifetime is the entire program
+static data_type data_member_name;
+
+===========================================================================================
+				Exception Handling in C++
+=============================================================================================
+
+Exceptions are runtime anomalies or abnormal conditions that a program encounters during its execution.
+ There are two types of exceptions: a)Synchronous, b)Asynchronous 
+

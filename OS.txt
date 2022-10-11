@@ -1,0 +1,856 @@
+								OPERATING SYSTEM
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+gfg interview question and ans -> https://www.geeksforgeeks.org/commonly-asked-operating-systems-interview-questions/
+
+=====================================================================================================================================================================
+DEFINITION 
+		An operating system acts as an intermediary between the user of a computer and computer hardware. 
+The purpose of an operating system is to provide an environment in which a user can execute programs conveniently and efficiently. 	
+
+Why we use os
+	An Operating System performs all the basic tasks like managing files, processes, and memory. Thus operating system acts as the manager of all the resources,
+	 i.e. resource manager. Thus, the operating system becomes an interface between user and machine. 
+
+Types of Operating Systems
+	1. Batch Operating System – 
+			This type of operating system does not interact with the computer directly. There is an operator which takes similar 
+			jobs having the same requirement and group them into batches. It is the responsibility of the operator to sort jobs with similar needs. 
+					user -> os -> batches using operator -> cpu 
+			Examples of Batch based Operating System: Payroll System, Bank Statements, etc. 
+	2. Time-Sharing Operating Systems – 
+			Each task is given some time to execute so that all the tasks work smoothly. Each user gets the time of CPU as they use a single system.
+			These systems are also known as Multitasking Systems. The task can be from a single user or different users also. 
+			The time that each task gets to execute is called quantum. After this time interval is over OS switches over to the next task. 
+
+	3. Distributed Operating System – 
+			 Various autonomous interconnected computers communicate with each other using a shared communication network. 
+			Independent systems possess their own memory unit and CPU. These are referred to as loosely coupled systems or distributed systems.
+	4. Network Operating System – 
+			These systems run on a server and provide the capability to manage data, users, groups, security, applications, and other networking 
+			functions
+	5. Real-Time Operating System – 
+			These types of OSs serve real-time systems. The time interval required to process and respond to inputs is very small. 
+			This time interval is called response time. 
+
+			Real-time systems are used when there are time requirements that are very strict like missile systems, air traffic control systems, robots, etc.
+
+
+Functions of Operating System
+	Security – 
+	Control over system performance – 
+	Job accounting – 
+	Error detecting aids – 
+	Coordination between other software and users – 
+	Memory Management –
+	Processor Management –
+	Device Management – 
+	
+Difference between Multiprogramming, multitasking, multithreading and multiprocessing
+	Multiprogramming – Multiprogramming is known as keeping multiple programs in the main memory at the same time ready for execution.
+	Multiprocessing – A computer using more than one CPU at a time.
+	Multitasking – Multitasking is nothing but multiprogramming with a Round-robin scheduling algorithm.
+	Multithreading is an extension of multitasking.
+
+Random Access Memory (RAM) – 
+It is also called read-write memory or the main memory or the primary memory.
+The programs and data that the CPU requires during the execution of a program are stored in this memory.
+It is a volatile memory as the data is lost when the power is turned off.
+RAM is further classified into two types- SRAM (Static Random Access Memory) and DRAM (Dynamic Random Access Memory).
+
+Read-Only Memory (ROM)  
+Stores crucial information essential to operate the system, like the program essential to boot the computer.
+It is non-volatile.
+Always retains its data.
+Used in embedded systems or where the programming needs no change.
+Used in calculators and peripheral devices.
+ROM is further classified into four types- MROM, PROM, EPROM, and EEPROM. 
+
+Difference between 32-bit and 64-bit operating systems
+
+A 32-bit system can access 232 different memory addresses, i.e 4 GB of RAM or physical memory ideally, it can access more than 4 GB of RAM also. 
+A 64-bit system can access 264 different memory addresses, i.e actually 18-Quintillion bytes of RAM. In short, any amount 
+of memory greater than 4 GB can be easily handled by it.
+
+
+Boot Block in Operating System
+	Basically for a computer to start running to get an instance when it is powered up or rebooted it need to have an initial program to run.
+ 	And this initial program which is known as bootstrap needs to be simple. It must initialize all aspects of the system, from CPU registers
+	 to device controllers and the contents of the main memory, and then starts the operating system. 
+
+	To do this job the bootstrap program basically finds the operating system kernel on disk and then loads the kernel into memory and after this, 
+	it jumps to the initial address to begin the operating-system execution. 
+
+Why ROM: 
+	This location is good for storage because this place doesn’t require initialization and moreover location here is fixed so that processor can start
+	executing when powered up or reset.
+	ROM is basically read-only memory and hence it cannot be affected by the computer virus.
+
+Kernel
+	Kernel is the core part of an operating system that manages system resources. It also acts as a bridge between the application and hardware of the computer.
+	It is one of the first programs loaded on start-up .
+
+Kernel mode and User mode of CPU operation 
+The CPU can execute certain instructions only when it is in kernel mode. These instructions are called privilege instruction.
+ They allow the implementation of special operations whose execution by the user program could interface with the functioning of 
+the operating system or activity of another user program. For example, instruction for managing memory protection. 
+
+
+The operating system puts the CPU in kernel mode when it is executing in the kernel so, that kernel can execute some special operation.
+The operating system puts the CPU in user mode when a user program is in execution so, that the user program cannot interface with the operating system program.
+
+Spooling and Device Reservation – 
+A spool is a buffer that holds the output of a device, such as a printer that cannot accept interleaved data streams.
+ Although a printer can serve only one job at a time, several applications may wish to print their output concurrently, without having their output mixes together. 
+The OS solves this problem by preventing all output from continuing to the printer.
+ The output of all applications is spooled in a separate disk file. When an application finishes printing then the spooling
+ system queues the corresponding spool file for output to the printer. 
+
+
+
+Caching – 
+A cache is a region of fast memory that holds a copy of data. Access to the cached copy is much easier than the original file. 
+For instance, the instruction of the currently running process is stored on the disk, cached in physical memory, 
+and copied again in the CPU’s secondary and primary cache. 
+The main difference between a buffer and a cache is that a buffer may hold only the existing copy of a data item,
+ while a cache, by definition, holds a copy on faster storage of an item that resides elsewhere. 
+
+
+Introduction of System Call
+	a system call is the programmatic way in which a computer program requests a service from the kernel of the operating system it is executed on.
+ 	A system call is a way for programs to interact with the operating system. A computer program makes a system call when it makes a request to the operating 
+	system’s kernel. System call provides the services of the operating system to the user programs via Application Program Interface(API). 
+	It provides an interface between a process and operating system to allow user-level processes to request services of the operating system. 
+	System calls are the only entry points into the kernel system. All programs needing resources must use system calls.
+
+
+Dual Mode operations in OS
+	User mode – 
+		When the computer system is run by user applications like creating a text document or using any application program, then the system is in user mode.
+		 When the user application requests for a service from the operating system or an interrupt occurs or system call, then there will be a transition from
+		 user to kernel mode to fulfill the requests. 
+Note: To switch from kernel mode to user mode, the mode bit should be 1. 
+
+Kernel Mode – 
+When the system boots, hardware starts in kernel mode and when the operating system is loaded, it starts user application in user mode. 
+To provide protection to the hardware, we have privileged instructions which execute only in kernel mode. If the user attempts to run 
+privileged instruction in user mode then it will treat instruction as illegal and traps to OS. Some of the privileged instructions are: 
+ 
+	Handling Interrupts
+	To switch from user mode to kernel mode.
+	Input-Output management.
+Note: To switch from user mode to kernel mode bit should be 0. 
+
+=================================================================================================================================================================
+                                           PROCESSES AND THREADS 
+==================================================================================================================================================================
+
+
+What is a Thread?
+A thread is a path of execution within a process. A process can contain multiple threads.
+
+Why Multithreading?
+A thread is also known as lightweight process. The idea is to achieve parallelism by dividing a process into multiple threads. For example,
+ in a browser, multiple tabs can be different threads. MS Word uses multiple threads: one thread to format the text, another thread to process inputs, etc.
+ More advantages of multithreading are discussed below
+
+Process vs Thread?
+The primary difference is that threads within the same process run in a shared memory space, while processes run in separate memory spaces.
+Threads are not independent of one another like processes are, and as a result threads share with other threads their code section, data section,
+ and OS resources (like open files and signals). But, like process, a thread has its own program counter (PC), register set, and stack space.
+Threads are not independent of each other as they share the code, data, OS resources etc.  
+Advantages of Thread over Process
+	. Responsiveness
+	2. Faster context switch
+	3. Effective utilization of multiprocessor system: 
+	
+Types of Threads
+	There are two types of threads.
+	User Level Thread
+	Kernel Level Thread
+
+User Level Thread		
+	User Level thread (ULT) – Is implemented in the user level library, they are not created using the system calls. 
+	Thread switching does not need to call OS and to cause interrupt to Kernel. Kernel doesn’t know about the user level thread and manages them as if 
+	they were single-threaded processes. 
+
+Kernel Level Thread (KLT) – Kernel knows and manages the threads. Instead of thread table in each process, the kernel itself has thread table (a master one)
+	 that keeps track of all the threads in the system. In addition kernel also maintains the traditional process table to keep track of the processes.
+	 OS kernel provides system call to create and manage threads.
+
+Multi Threading Models in Process Management
+	Multi threading-It is a process of multiple threads executes at same time.
+	
+Multi Threading Models in Process Management 	
+
+Zombie Process:
+
+A process which has finished the execution but still has entry in the process table to report to its parent process is known as a zombie process. 
+A child process always first becomes a zombie before being removed from the process table. The parent process reads the exit status of the child process 
+which reaps off the child process entry from the process table.                 	
+
+Orphan Process:
+
+A process whose parent process no more exists i.e. either finished or terminated without waiting for its child process to terminate is called an orphan process.
+In the following code, parent finishes execution and exits while the child process is still executing and is called an orphan process now.
+
+================================================================================================================================================================
+
+							Process Management
+
+================================================================================================================================================================
+
+Process : 
+         A process is a program in execution
+Program vs Process:
+	A process is an ‘active’ entity instead of a program, which is considered a ‘passive’ entity. A single program can create many 
+	processes when run multiple times
+
+for more link ->  https://www.geeksforgeeks.org/introduction-of-process-management/
+
+Context Switching: 
+	The process of saving the context of one process and loading the context of another process is known as Context Switching.
+	 In simple terms, it is like loading and unloading the process from the running state to the ready state. 
+
+
+	Program Counter. 
+	Stack: The stack contains temporary data, such as function parameters, returns addresses, and local variables. 
+	Data Section: Contains the global variable. 
+	Heap Section: Dynamically allocated memory to process during its run time. 
+
+
+States of Process: A process is in one of the following states: 
+
+1. New: Newly Created Process (or) being-created process.
+
+2. Ready: After creation process moves to Ready state, i.e. the 
+          process is ready for execution.
+
+3. Run: Currently running process in CPU (only one process at
+        a time can be under execution in a single processor).
+
+4. Wait (or Block): When a process requests I/O access.
+
+5. Complete (or Terminated): The process completed its execution.
+
+6. Suspended Ready: When the ready queue becomes full, some processes 
+                    are moved to suspended ready state
+
+7. Suspended Block: When waiting queue becomes full.
+
+
+
+CPU-Bound vs I/O-Bound Processes:	 A CPU-bound process requires more CPU time or spends more time in the running state. 
+					An I/O-bound process requires more I/O time and less CPU time. An I/O-bound
+
+
+Pre-emption – 		Process is forcefully removed from CPU. Pre-emption is also called as time sharing or multitasking.
+Non pre-emption –	Processes are not removed until they complete the executio
+
+Process Schedulers in Operating System
+		The process scheduling is the activity of the process manager that handles the removal of the running process from the CPU and the selection
+		 of another process on the basis of a particular strategy.
+		Long Term or job scheduler : 
+		Short term or CPU scheduler :
+		Medium-term scheduler : 
+
+
+What are the different terminologies to take care of in any CPU Scheduling algorithm?
+Arrival Time: Time at which the process arrives in the ready queue.
+Completion Time: Time at which process completes its execution.
+Burst Time: Time required by a process for CPU execution.
+Turn Around Time: Time Difference between completion time and arrival time.
+
+What are the different types of CPU Scheduling Algorithms?
+There are mainly two types of scheduling methods:
+
+Preemptive Scheduling: Preemptive scheduling is used when a process switches from running state to ready state or from the waiting state to the ready state.
+Non-Preemptive Scheduling: Non-Preemptive scheduling is used when a process terminates , or when a process switches from running state to waiting state.
+
+1. First Come First Serve: 
+	First come first serve scheduling algorithm states that the process that requests the CPU first is allocated the CPU first and is
+	 implemented by using FIFO queue.
+
+
+2. Shortest job first (SJF) is a scheduling process that selects the waiting process with the smallest execution time to execute next. 
+	This scheduling method may or may not be preemptive. Significantly reduces the average waiting time for other processes waiting to be executed.
+
+3. Preemptive Priority CPU Scheduling Algorithm is a pre-emptive method of CPU scheduling algorithm that works based on the priority of a process
+	In this algorithm, the editor sets the functions to be as important, meaning that the most important process must be done first. 
+
+4. Round robin:
+	Round Robin is a CPU scheduling algorithm where each process is cyclically assigned a fixed time slot. 
+	It is the preemptive version of First come First Serve CPU Scheduling algorithm. Round Robin CPU Algorithm generally focuses on Time Sharing technique. 
+
+
+Dispatcher – A dispatcher is a special program which comes into play after the scheduler. 
+When the scheduler completes its job of selecting a process, it is the dispatcher which takes that process to the
+ desired state/queue. The dispatcher is the module that gives a process control over the CPU after it has been selected by the
+
+
+What is the Convoy Effect?
+	The Convoy Effect is a phenomenon in which the entire Operating System slows down owing to a few slower processes in the system.
+	 When CPU time is allotted to a process, the FCFS algorithm assures that other processes only get CPU time when the current one is finished.
+
+
+
+Note: A major problem with priority scheduling is indefinite blocking or starvation. A solution to the problem of indefinite blockage of the low-priority
+ process is aging. Aging is a technique of gradually increasing the priority of processes that wait in the system for a long period of time.
+ 
+
+
+
+
+
+
+=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+						  Process Synchronization
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Synchronization is the way by which processes that share the same memory space are managed in an operating system.
+
+Independent Process: The execution of one process does not affect the execution of other processes.
+Cooperative Process: A process that can affect or be affected by other processes executing in the system.
+
+Process synchronization problem arises in the case of Cooperative process also because resources are shared in Cooperative processes
+
+
+
+Race Condition:
+ When more than one process is executing the same code or accessing the same memory or any shared variable in that condition there is a possibility
+ that the output or the value of the shared variable is wrong so for that all the processes doing the race to say that my output is correct this 
+condition known as a race condition
+
+Critical Section Problem: 
+A critical section is a code segment that can be accessed by only one process at a time.
+ The critical section contains shared variables that need to be synchronized to maintain the consistency of data variables. 
+So the critical section problem means designing a way for cooperative processes to access shared resources without creating data inconsistencies. 
+
+Entry Section –
+It is part of the process which decide the entry of a particular process in the Critical Section, out of many other processes.
+Critical Section –
+It is the part in which only one process is allowed to enter and modify the shared variable.This part of the process ensures that only no 
+other process can access the resource of shared data.
+Exit Section –
+This process allows the other process that are waiting in the Entry Section, to enter into the Critical Sections. It checks that a process that after 
+a process has finished execution in Critical Section can be removed through this Exit Section.
+Remainder Section –
+The other parts of the Code other than Entry Section, Critical Section and Exit Section are known as Remainder Section.
+Critical Section problems must satisfy these three requirements:
+
+Mutual Exclusion –
+It states that no other process is allowed to execute in the critical section if a process is executing in critical section.
+Progress –
+When no process is in the critical section, then any process from outside that request for execution can enter in the critical section without any delay. 
+Only those process can enter that have requested and have finite time to enter the process.
+Bounded Waiting –
+An upper bound must exist on the number of times a process enters so that other processes are allowed to enter their critical sections after a process has
+ made a request to enter its critical section and before that request is granted.
+
+
+
+
+Mutual Exclusion: If a process is executing in its critical section, then no other process is allowed to execute in the critical section.
+
+Inter Process Communication (IPC)
+	. Inter-process communication (IPC) is a mechanism that allows processes to communicate with each other and synchronize their actions.
+	  Processes can communicate with each other through both:
+ 
+	Shared Memory
+	Message passing
+
+
+Shared Memory Method
+
+Ex: Producer-Consumer problem 
+There are two processes: Producer and Consumer. The producer produces some items and the Consumer consumes that item.
+ The two processes share a common space or memory location known as a buffer where the item produced by the Producer
+ is stored and from which the Consumer consumes the item if needed
+
+ii) Messaging Passing Method
+	. In this method, processes communicate with each other without using any kind of shared memory. If two processes p1 and p2 want to communicate with 
+	  each other, they proceed as follows:
+ 
+	Establish a communication link (if a link already exists, no need to establish it again.)
+	Start exchanging messages using basic primitives.
+	We need at least two primitives: 
+	– send(message, destination) or send(message) 
+	– receive(message, host) or receive(message)
+
+
+
+A semaphore is simply an integer variable that is shared between threads. This variable is used to solve the critical section problem an
+d to achieve process synchronization in the multiprocessing environment. 
+Semaphores are of two types:
+
+Binary Semaphore – 
+This is also known as mutex lock. It can have only two values – 0 and 1. Its value is initialized to 1. It is used to implement the solution of critical
+ section problems with multiple processes.
+Counting Semaphore – 
+Its value can range over an unrestricted domain. It is used to control access to a resource that has multiple instances.
+
+
+Mutex vs Semaphore
+Strictly speaking, a mutex is a locking mechanism used to synchronize access to a resource.
+ Only one task (can be a thread or process based on OS abstraction) can acquire the mutex.
+ It means there is ownership associated with a mutex, and only the owner can release the lock (mutex). 
+
+Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal). For example, if you are listening to songs 
+(assume it as one task) on your mobile phone and at the same time, your friend calls you, an interrupt is triggered upon which
+ an interrupt service routine (ISR) signals the call processing task to wakeup. 
+
+General Questions: 
+
+1. Can a thread acquire more than one lock (Mutex)? 
+
+Yes, it is possible that a thread is in need of more than one resource, hence the locks. If any lock is not available the thread will wait (block) on the lock. 
+
+2. Can a mutex be locked more than once? 
+
+A mutex is a lock. Only one state (locked/unlocked) is associated with it. However, a recursive mutex can be locked more than once (POSIX compliant systems), 
+in which a count is associated with it, yet retains only one state (locked/unlocked). The programmer must unlock the mutex as many number times as it was locked. 
+
+3. What happens if a non-recursive mutex is locked more than once. 
+
+Deadlock. If a thread that had already locked a mutex, tries to lock the mutex again, it will enter into the waiting list of that mutex,
+ which results in a deadlock. It is because no other thread can unlock the mutex. An operating system implementer can exercise care in 
+identifying the owner of the mutex and return if it is already locked by a same thread to prevent deadlocks. 
+
+4. Are binary semaphore and mutex same? 
+
+No. We suggest treating them separately, as it is explained in signaling vs locking mechanisms. But a binary semaphore may experience the same 
+critical issues (e.g. priority inversion) associated with a mutex. We will cover these in a later article. 
+
+A programmer can prefer mutex rather than creating a semaphore with count 1. 
+
+5. What is a mutex and critical section? 
+
+Some operating systems use the same word critical section in the API. Usually a mutex is a costly operation due to protection protocols associated with it.
+ At last, the objective of mutex is atomic access. There are other ways to achieve atomic access like disabling interrupts which can be much faster but ruins 
+responsiveness. The alternate API makes use of disabling interrupts. 
+
+6. What are events? 
+
+The semantics of mutex, semaphore, event, critical section, etc… are same. All are synchronization primitives. Based on their cost in using them they are different. 
+We should consult the OS documentation for exact details. 
+
+7. Can we acquire mutex/semaphore in an Interrupt Service Routine? 
+
+An ISR will run asynchronously in the context of current running thread. It is not recommended to query (blocking call) the availability of synchronization 
+primitives in an ISR. The ISR are meant be short, the call to mutex/semaphore may block the current running thread. However, an ISR can signal a semaphore or 
+unlock a mutex. 
+
+8. What we mean by “thread blocking on mutex/semaphore” when they are not available? 
+
+Every synchronization primitive has a waiting list associated with it. When the resource is not available, the requesting thread will be moved from the running 
+list of processors to the waiting list of the synchronization primitive. When the resource is available, the higher priority thread on the waiting list gets the 
+resource (more precisely, it depends on the scheduling policies). 
+
+9. Is it necessary that a thread must block always when resource is not available? 
+
+Not necessary. If the design is sure ‘what has to be done when resource is not available‘, the thread can take up that work (a different code branch). 
+To support application requirements the OS provides non-blocking API. 
+
+
+===============================================================================================================================================
+
+							Deadlock
+==================================================================================================================================================
+
+Deadlock is a situation where a set of processes are blocked because each process is holding a resource and waiting for another resource 
+acquired by some other process.
+
+
+Deadlock can arise if the following four conditions hold simultaneously (Necessary Conditions) 
+Mutual Exclusion: Two or more resources are non-shareable (Only one process can use at a time) 
+Hold and Wait: A process is holding at least one resource and waiting for resources. 
+No Preemption: A resource cannot be taken from a process unless the process releases the resource. 
+Circular Wait: A set of processes are waiting for each other in circular form. 
+
+
+Methods for handling deadlock 
+There are three ways to handle deadlock 
+1) Deadlock prevention or avoidance: The idea is to not let the system into a deadlock state. 
+One can zoom into each category individually, Prevention is done by negating one of above mentioned necessary conditions for deadlock. 
+Avoidance is kind of futuristic in nature. By using strategy of “Avoidance”, we have to make an assumption. We need to ensure that all information about resources
+ which process will need are known to us prior to execution of the process. We use Banker’s algorithm (Which is in-turn a gift from Dijkstra) in order to avoid 
+deadlock. 
+
+2) Deadlock detection and recovery: Let deadlock occur, then do preemption to handle it once occurred. 
+
+3) Ignore the problem altogether: If deadlock is very rare, then let it happen and reboot the system. This is the approach that both Windows and UNIX take. 
+
+
+
+Deadlock Detection And Recovery
+
+Deadlock Detection : 
+
+ 1. If resources have a single instance –
+In this case for Deadlock detection, we can run an algorithm to check for the cycle in the Resource Allocation Graph.
+ The presence of a cycle in the graph is a sufficient condition for deadlock. 
+
+Livelock
+	
+Livelock occurs when two or more processes continually repeat the same interaction in response to changes in
+ the other processes without doing any useful work. These processes are not in the waiting state, and they are running concurrently.
+ This is different from a deadlock because in a deadlock all processes are in the waiting state. 
+
+Difference between Deadlock, Starvation, and Livelock: 
+A livelock is similar to a deadlock, except that the states of the processes involved in the livelock constantly change with regard to one another, 
+none progressing. Livelock is a special case of resource starvation; the general definition states that a specific process is not progressing.
+
+
+Eliminate Mutual Exclusion 
+It is not possible to dis-satisfy the mutual exclusion because some resources, such as the tape drive and printer, are inherently non-shareable. 
+
+Eliminate Hold and wait 
+
+Allocate all required resources to the process before the start of its execution, this way hold and wait condition 
+is eliminated but it will lead to low device utilization. for example, if a process requires printer at a later time and we have 
+allocated printer before the start of its execution printer will remain blocked till it has completed its execution. 
+ 
+The process will make a new request for resources after releasing the current set of resources. This solution may lead to starvation.
+ 
+
+holdnwait
+
+Eliminate No Preemption 
+Preempt resources from the process when resources required by other high priority processes. 
+
+ Eliminate Circular Wait 
+Each resource will be assigned with a numerical number. A process can request the resources increasing/decreasing. order of numbering. 
+For Example, if P1 process is allocated R5 resources, now next time if P1 ask for R4, R3 lesser than R5 such request will not be granted, 
+only request for resources more than R5 will be granted. 
+
+=======================================================================================================================================================
+
+							MEMORY 
+
+======================================================================================================================================================
+
+
+Different Types of RAM (Random Access Memory )
+			RAM(Random Access Memory) is a part of computer’s Main Memory which is directly accessible by CPU. RAM is used to Read and Write data
+		 into it which is accessed by CPU randomly. RAM is volatile in nature, it means if the power goes off, the stored information is lost. RAM is
+		 used to store the data that is currently processed by the CPU
+
+	Integrated RAM chips are available in two form: 
+
+		SRAM(Static RAM)
+		DRAM(Dynamic RAM)
+
+	1. SRAM :
+		The SRAM memories consist of circuits capable of retaining the stored information as long as the power is applied. 
+		That means this type of memory requires constant power. SRAM memories are used to build Cache Memory. 
+
+
+	2. DRAM :
+		DRAM stores the binary information in the form of electric charges applied to capacitors. The stored information on the capacitors tends
+		 to lose over a period of time and thus the capacitors must be periodically recharged to retain their usage. The main memory is generally
+		 made up of DRAM chips. 
+
+--------------------------------------------------------------------------------------------------
+Partition Allocation Methods in Memory Management
+		in the operating system, the following are four common memory management techniques. 
+
+Single contiguous allocation: Simplest allocation method used by MS-DOS. All memory (except some reserved for OS) is available to a process. 
+
+Partitioned allocation: Memory is divided into different blocks or partitions. Each process is allocated according to the requirement. 
+
+Paged memory management: Memory is divided into fixed-sized units called page frames, used in a virtual memory environment. 
+
+Segmented memory management: Memory is divided into different segments (a segment is a logical grouping of the process’ data or code).In this management, 
+allocated memory doesn’t have to be contiguous. 
+
+Most of the operating systems (for example Windows and Linux) use Segmentation with Paging. A process is divided into segments and individual segments have pages. 
+
+
+here are different Placement Algorithm:
+
+A. First Fit
+
+B. Best Fit
+
+C. Worst Fit
+
+D. Next Fit
+
+1. First Fit: In the first fit, the partition is allocated which is the first sufficient block from the top of Main Memory. 
+	It scans memory from the beginning and chooses the first available block that is large enough. Thus it allocates the first hole that is large enough. 
+
+2. Best Fit Allocate the process to the partition which is the first smallest sufficient partition among the free available partition. 
+	It searches the entire list of holes to find the smallest hole whose size is greater than or equal to the size of the process. 
+
+
+3. Worst Fit Allocate the process to the partition which is the largest sufficient among the freely available partitions available in the main memory.
+ It is opposite to the best-fit algorithm. It searches the entire list of holes to find the largest hole and allocate it to process.  
+
+4. Next Fit: Next fit is similar to the first fit but it will search for the first sufficient partition from the last allocation point. 
+
+Is Best-Fit really best? 
+Although best fit minimizes the wastage space, it consumes a lot of processor time for searching the block which is close to the required size.
+ Also, Best-fit may perform poorer than other algorithms in some cases
+
+
+	
+There are two Memory Management Techniques: Contiguous, and Non-Contiguous. In Contiguous Technique, executing process must be loaded entirely in the main memory.
+ Contiguous Technique can be divided into: 
+
+Fixed (or static) partitioning 
+ 
+ Variable (or dynamic) partitioning 
+
+
+1. Fixed Partitioning: 
+This is the oldest and simplest technique used to put more than one process in the main memory. In this partitioning, the number of partitions 
+(non-overlapping) in RAM is fixed but the size of each partition may or may not be the same. As it is a contiguous allocation, hence no spanning is allowed.
+ Here partitions are made before execution or during system configure. 
+
+Disadvantages of Fixed Partitioning – 
+	Internal Fragmentation: 
+		Main memory use is inefficient. Any program, no matter how small, occupies an entire partition. This can cause internal fragmentation. 
+ 
+External Fragmentation: 
+		The total unused space (as stated above) of various partitions cannot be used to load the processes even though there is space available but not in the contiguous 
+		form (as spanning is not allowed). 
+ 
+Limit process size: 
+		Process of size greater than the size of the partition in Main Memory cannot be accommodated. The partition size cannot be varied according to the size 
+		of the incoming process size. Hence, the process size of 32MB in the above-stated example is invalid. 
+ 
+Limitation on Degree of Multiprogramming: 
+		Partitions in Main Memory are made before execution or during system configure. Main Memory is divided into a fixed number of partitions.
+		
+
+2 Variable Partitioning –
+
+	Initially RAM is empty and partitions are made during the run-time according to process’s need instead of partitioning during system configure.
+	The size of partition will be equal to incoming process.
+	The partition size varies according to the need of the process so that the internal fragmentation can be avoided to ensure efficient utilisation of RAM.
+	Number of partitions in RAM is not fixed and depends on the number of incoming process and Main Memory’s size.
+
+Advantages of Variable Partitioning –
+
+	No Internal Fragmentation:
+	No restriction on Degree of Multiprogramming:
+	No Limitation on the size of the process:
+Disadvantages of Variable Partitioning –
+
+Difficult Implementation:
+	Implementing variable Partitioning is difficult as compared to Fixed Partitioning as it involves allocation of memory during run-time rather than 
+	during system configure.
+External Fragmentation
+
+
+Non-Contiguous Allocation in Operating System
+	In non-contiguous allocation, the Operating system needs to maintain the table which is called the Page Table for each process which contains 
+the base address of each block that is acquired by the process in memory space. In non-contiguous memory allocation, different parts of a process are 
+allocated to different places in Main Memory. Spanning is allowed 
+Paging is done to remove External Fragmentation. 
+
+There are five types of Non-Contiguous Allocation of Memory in the Operating System:
+
+Paging
+Multilevel Paging
+Inverted Paging
+Segmentation
+Segmented Paging
+
+Logical and Physical Address in Operating System
+Logical Address is generated by CPU while a program is running. The logical address is virtual address as it does not exist physically, 
+therefore, it is also known as Virtual Address. This address is used as a reference to access the physical memory location by CPU.
+ The term Logical Address Space is used for the set of all logical addresses generated by a program’s perspective. 
+
+
+Physical Address identifies a physical location of required data in a memory. The user never directly deals with the physical address but can 
+access by its corresponding logical address. The user program generates the logical address and thinks that the program is running in this 
+logical address but the program needs physical memory for its execution, therefore, the logical address must be mapped to the physical address 
+by MMU before they are used
+
+Paging in Operating System
+Paging is a memory management scheme that eliminates the need for contiguous allocation of physical memory. This scheme permits the physical address space 
+of a process to be non – contiguous.
+
+Logical Address or Virtual Address (represented in bits): An address generated by the CPU
+Logical Address Space or Virtual Address Space( represented in words or bytes): The set of all logical addresses generated by a program
+Physical Address (represented in bits): An address actually available on memory unit
+Physical Address Space (represented in words or bytes): The set of all physical addresses corresponding to the logical addresses
+
+
+The mapping from virtual to physical address is done by the memory management unit (MMU) which is a hardware device and this mapping is known as paging technique.
+
+The Physical Address Space is conceptually divided into a number of fixed-size blocks, called frames.
+The Logical address Space is also splitted into fixed-size blocks, called pages.
+Page Size = Frame Size
+
+Address generated by CPU is divided into
+
+Page number(p): Number of bits required to represent the pages in Logical Address Space or Page number
+Page offset(d): Number of bits required to represent particular word in a page or page size of Logical Address Space or word number of a page or page offset.
+Physical Address is divided into
+
+Frame number(f): Number of bits required to represent the frame of Physical Address Space or Frame number.
+Frame offset(d): Number of bits required to represent particular word in a frame or frame size of Physical Address Space or word number of a frame or frame offset.
+
+The hardware implementation of page table can be done by using dedicated registers. But the usage of register for the page table is satisfactory only if page table is small. If page table contain large number of entries then we can use TLB(translation Look-aside buffer), a special, small, fast look up hardware cache.
+
+The TLB is associative, high speed memory.
+Each entry in TLB consists of two parts: a tag and a value.
+When this memory is used, then an item is compared with all tags simultaneously.If the item is found, then corresponding value is returned.
+
+
+Requirements of Memory Management System
+	Relocation 
+	Protection 
+	Sharing 
+
+Mapping Virtual Addresses to Physical Addresses :
+The Memory Management Unit is a combination of 2 registers – 
+
+Base Register (Relocation Register) 
+Limit Register. 
+Base Register – contains the starting physical address of the process.
+Limit Register -mentions the limit relative to the base address on the region occupied by the process. 
+
+The logical address generated by the CPU is first checked by the limit register, If the value of the logical address generated is less than the value of
+ the limit register, the base address stored in the relocation register is added to the logical address to get the physical address of the memory location.
+If the logical address value is greater than the limit register, then the CPU traps to the OS, and the OS terminates the program by giving fatal error.
+
+Virtual Memory in Operating System
+		It is a technique that is implemented using both hardware and software. It maps memory addresses used by a program, called virtual addresses, 
+		into physical addresses in computer memory. 
+
+		All memory references within a process are logical addresses that are dynamically translated into physical addresses at run time.
+		 This means that a process can be swapped in and out of the main memory such that it occupies different places in the main memory at 
+		different times during the course of execution.
+		A process may be broken into a number of pieces and these pieces need not be continuously located in the main memory during execution.
+ 		The combination of dynamic run-time address translation and use of page or segment table permits this.
+
+
+ it is not necessary that all the pages or segments are present in the main memory during execution. This means that the required pages
+ need to be loaded into memory whenever required. Virtual memory is implemented using Demand Paging or Demand Segmentation. 
+
+
+Demand Paging : 
+	The process of loading the page into memory on demand (whenever page fault occurs) is known as demand paging. 
+	If the CPU tries to refer to a page that is currently not available in the main memory, it generates an interrupt indicating a memory access fault.
+	The OS puts the interrupted process in a blocking state. For the execution to proceed the OS must bring the required page into the memory.
+	The OS will search for the required page in the logical address space.
+	The required page will be brought from logical address space to physical address space. The page replacement algorithms are used for the decision-making of 
+	replacing the page in physical address space.
+	The page table will be updated accordingly.
+	The signal will be sent to the CPU to continue the program execution and it will place the process back into the ready state.
+
+
+ process may be larger than all of the main memory: One of the most fundamental restrictions in programming is lifted. 
+A process larger than the main memory can be executed because of demand paging. The OS itself loads pages of a process in the main memory as required.
+
+Swapping: 
+
+Swapping a process out means removing all of its pages from memory, or marking them so that they will be removed by the normal page replacement process. 
+Suspending a process ensures that it is not runnable while it is swapped out. At some later time, the system swaps back the process from the secondary storage 
+to the main memory. When a process is busy swapping pages in and out then this situation is called thrashing. 
+
+
+Causes of Thrashing :  
+
+High degree of multiprogramming : If the number of processes keeps on increasing in the memory then the number of frames allocated to each process will 
+be decreased. So, fewer frames will be available for each process. Due to this, a page fault will occur more frequently and more CPU time will be wasted in 
+just swapping in and out of pages and the utilization will keep on decreasing. 
+
+
+Lacks of Frames: If a process has fewer frames then fewer pages of that process will be able to reside in memory and hence more frequent swapping in and out
+ will be required. This may lead to thrashing. Hence sufficient amount of frames must be allocated to each process in order to prevent thrashing.
+
+
+Swap Space in Operating System
+	A computer has a sufficient amount of physical memory but most of the time we need more so we swap some memory on disk. 
+	Swap space is a space on a hard disk that is a substitute for physical memory. It is used as virtual memory which contains process memory images. 
+	Whenever our computer runs short of physical memory it uses its virtual memory and stores information in memory on disk. Swap space helps the computer’s
+	 operating system in pretending that it has more RAM than it actually has. It is also called a swap file. This interchange of data between virtual memory
+	 and real memory is called swapping and space on disk as “swap space”. 
+
+Segmentation in Operating System
+	A process is divided into Segments. The chunks that a program is divided into which are not necessarily all of the same sizes are called segments. Segmentation gives user’s view of the process which paging does not give. Here the user’s view is mapped to physical memory.
+There are types of segmentation:
+
+Virtual memory segmentation –
+	Each process is divided into a number of segments, not all of which are resident at any one point in time.
+	Simple segmentation –
+	Each process is divided into a number of segments, all of which are loaded into memory at run time, though not necessarily contiguously.
+
+
+There is no simple relationship between logical addresses and physical addresses in segmentation. A table stores the information about all such 
+segments and is called Segment Table.
+
+Segment Table – It maps two-dimensional Logical address into one-dimensional Physical address. It’s each table entry has:
+
+Base Address: It contains the starting physical address where the segments reside in memory.
+Limit: It specifies the length of the segment.
+
+Address generated by the CPU is divided into:
+
+Segment number (s): Number of bits required to represent the segment.
+Segment offset (d): Number of bits required to represent the size of the segment.
+Advantages of Segmentation –
+
+No Internal fragmentation.
+Segment Table consumes less space in comparison to Page table in paging.
+Disadvantage of Segmentation –
+
+As processes are loaded and removed from the memory, the free memory space is broken into little pieces, causing External fragmentation.
+
+Overlays in Memory Management
+		The concept of overlays is that whenever a process is running it will not use the complete program at the same time, it will use only 
+some part of it. Then overlays concept says that whatever part you required, you load it and once the part is done, then you just unload it, means just 
+pull it back and get the new part you required and run it. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
