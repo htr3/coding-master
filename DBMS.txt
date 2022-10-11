@@ -1,0 +1,224 @@
+======================================================================================================================================
+Database : Database is a collection of inter-related data which helps in efficient Access, insertion and deletion of data from database and organizes 
+the data in the form of tables, views, schemas, reports etc. For Example, University database organizes the data about students, faculty, and admin staff etc.
+ which helps in efficient retrieval, insertion and deletion of data from it.
+======================================================================================================================================
+
+======================================================================================================================================
+Normalization:
+Normalization is the process of minimizing redundancy from a relation or set of relations. Redundancy in relation may cause insertion, deletion, and update anomalies.
+ Normalization divides the larger table into the smaller table and links them using relationship.So, it helps to minimize the redundancy in relations.
+ Normal forms are used to eliminate or reduce redundancy in database tables.
+
+Normalization rules are divided into the following normal forms:
+
+(1) First Normal Form:
+A given relation is called in First Normal Form (1NF) if the attribute of every tuple is either single valued or a null value.
+
+(2) Second Normal Form
+A given relation is called in Second Normal Form (2NF) if and only if-
+    (1) Relation already exists in 1NF.
+    (2) No partial dependency exists in the relation.
+Partial Dependency:
+A partial dependency is a dependency where few attributes of the candidate key determines non-prime attribute.
+In other words,
+A → B is called a partial dependency if and only if-
+    A is a subset of some candidate key
+    B is a non-prime attribute.
+If any one condition fails, then it will not be a partial dependency.
+
+(3) Third Normal Form
+A given relation is called in Third Normal Form (3NF) if and only if-
+
+    (1) Relation already exists in 2NF.
+    (2) No transitive dependency exists for non-prime attributes.
+Transitive Dependency:
+A → B is called a transitive dependency if and only if-
+    A is not a super key.
+    B is a non-prime attribute.
+If any one condition fails, then it is not a transitive dependency.
+
+(4) BCNF (Boyce Codd Normal Form)
+A given relation is called in BCNF if and only if-
+    (1) Relation already exists in 3NF.
+    (2) For each non-trivial functional dependency A → B, A is a super key of the relation.
+======================================================================================================================================
+JOINS :
+A SQL Join statement is used to combine data or rows from two or more tables based on a common (Matching) field between them. 
+There are four types of joins in dbms:
+INNER JOIN : The INNER JOIN keyword selects all rows from both the tables as long as the condition satisfies. This keyword will create the result
+-set by combining all rows from both the tables where the condition satisfies i.e value of the common field will be same.
+
+LEFT JOIN : This join returns all the rows of the table on the left side of the join and matching rows for the table on the right side of join.
+ The rows for which there is no matching row on right side, the result-set will contain null. LEFT JOIN is also known as LEFT OUTER JOIN.
+
+RIGHT JOIN :  RIGHT JOIN is similar to LEFT JOIN. This join returns all the rows of the table on the right side of the join and matching 
+rows for the table on the left side of join. The rows for which there is no matching row on left side, the result-set will contain null.
+ RIGHT JOIN is also known as RIGHT OUTER JOIN.
+
+FULL JOIN : FULL JOIN creates the result set by combining result of both LEFT JOIN and RIGHT JOIN. The result set will contain all the rows from both the tables.
+ The rows for which there is no matching, the result-set will contain NULL values.
+======================================================================================================================================
+Indexing 
+	Indexing is a way to optimize the performance of a database by minimizing the number of disk accesses required when a query is processed. 
+	It is a data structure technique which is used to quickly locate and access the data in a database.
+	Indexes are created using a few database columns:
+	The first column is the Search key that contains a copy of the primary key or candidate key of the table.
+	 These values are stored in sorted order so that the corresponding data can be accessed quickly. 
+	Note: The data may or may not be stored in sorted order.
+	The second column is the Data Reference or Pointer which contains a set of pointers holding the address of the disk block where that particular key
+	 value can be found.
+======================================================================================================================================
+
+
+Concorency control 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+What is Transaction? 
+
+A set of logically related operations is known as a transaction. 
+Read(A): Read operations Read(A) or R(A) reads the value of A from the database and stores it in a buffer in the main memory.
+
+Write (A): Write operation Write(A) or W(A) writes the value back to the database from the buffer. 
+
+Advantages of Concurrency:
+
+Waiting Time: It means if a process is in a ready state but still the process does not get the system to get execute is called waiting time. 
+So, concurrency leads to less waiting time.
+Response Time: The time wasted in getting the response from the cpu for the first time, is called response time. So, concurrency leads to less Response Time.
+Resource Utilization: The amount of Resource utilization in a particular system is called Resource Utilization. 
+Multiple transactions can run parallel in a system. So, concurrency leads to more Resource Utilization.
+Efficiency: The amount of output produced in comparison to given input is called efficiency. So, Concurrency leads to more Efficiency.
+
+
+==================================================
+ACID  PROPERTIES 
+Atomicity:
+	we mean that either the entire transaction takes place at once or doesn’t happen at all. There is no midway i.e. transactions do not occur partially
+Consistency:
+	This means that integrity constraints must be maintained so that the database is consistent before and after the transaction
+Isolation:
+	This property ensures that multiple transactions can occur concurrently without leading to the inconsistency of the database state. 
+Durability: 
+	This property ensures that once the transaction has completed execution, the updates and modifications to the database are stored 
+in and written to disk and they persist even if a system failure occure
+
+
+=========================================================
+Serial Schedules
+	Schedules in which the transactions are executed non-interleaved, i.e., a serial schedule is one in which no transaction starts until a
+	 running transaction has ended are called serial schedules.
+Non-Serial Schedule:
+	This is a type of Scheduling where the operations of multiple transactions are interleaved. This might lead to a rise in the concurrency problem.
+The Non-Serial Schedule can be divided further into Serializable and Non-Serializable.
+Serializable
+	Conflict Serializable:
+		A schedule is called conflict serializable if it can be transformed into a serial schedule by swapping non-conflicting operations.
+	View Serializable:
+		A Schedule is called view serializable if it is view equal to a serial schedule (no overlapping transactions).
+Non-Serializable
+	Recoverable Schedule:
+		chedules in which transactions commit only after all transactions whose changes they read commit are called recoverable schedules
+	There can be three types of recoverable schedule:
+
+	Cascading Schedule
+		When there is a failure in one transaction and this leads to the rolling back or aborting other dependent transactions
+	Cascadeless Schedule:
+		Schedules in which transactions read values only after all transactions whose changes they are going to read commit are called cascadeless 
+		schedules.
+	Strict Schedule
+
+Conflicting operations pair (R1(A), W2(A)) because they belong to two different transactions on same data item A and one of them is write operation.
+Similarly, (W1(A), W2(A)) and (W1(A), R2(A)) pairs are also conflicting.
+On the other hand, (R1(A), W2(B)) pair is non-conflicting because they operate on different data item.
+Similarly, ((W1(A), W2(B)) pair is non-conflicting.
+
+Dirty Read – A Dirty read is a situation when a transaction reads data that has not yet been committed. 
+
+Non Repeatable read – Non Repeatable read occurs when a transaction reads the same row twice and gets a different value each time.
+
+Phantom Read – Phantom Read occurs when two same queries are executed, but the rows retrieved by the two, are different.
+
+
+Lock Based Concurrency Control Protocol in DBMS
+
+	Concurrency-control protocols : allow concurrent schedules, but ensure that the schedules are conflict/view serializable, and are
+ recoverable and maybe even cascadeless.
+
+
+Lock Based Protocols –
+	Shared Lock (S): also known as Read-only lock. As the name suggests it can be shared between transactions because while holding
+			this lock the transaction does not have the permission to update data on the data item
+
+	Exclusive Lock (X): Data item can be both read as well as written.This is Exclusive and cannot be held simultaneously on the same data item.
+	
+	Deadlock – consider the above execution phase. Now, T1 holds an Exclusive lock over B, and T2 holds a Shared lock over A. 
+			Consider Statement 7, T2 requests for lock on B, while in Statement 8 T1 requests lock on A. This as you may notice imposes 
+			a Deadlock as none can proceed with their execution.
+
+	Starvation – is also possible if concurrency control manager is badly designed. For example: A transaction may be waiting for an X-lock on an item,
+	 while a sequence of other transactions request and are granted an S-lock on the same item. This may be avoided if the concurrency
+	 control manager is properly designed.
+
+
+
+Two-Phase Locking –  A transaction is said to follow the Two-Phase Locking protocol if Locking and Unlocking can be done in two phases. 
+
+Growing Phase: New locks on data items may be acquired but none can be released.
+
+Shrinking Phase: Existing locks may be released but no new locks can be acquired.
+
+
+Log based Recovery in DBMS
+	Log and log records –
+		The log is a sequence of log records, recording all the update activities in the database. In a stable storage, logs for each transaction are 
+			maintained
+	Transaction identifier: Unique Identifier of the transaction that performed the write operation.
+	Data item: Unique identifier of the data item written.
+	Old value: Value of data item prior to write.
+	New value: Value of data item after write operation.
+
+Use of Checkpoints –
+	
+
+hy recovery is needed in DBMS
+
+	Types of failures – 
+			Transaction failure
+		System failure
+		Media failure and so on.
+
+Deadlock in DBMS	In a database, a deadlock is an unwanted situation in which two or more transactions are waiting indefinitely for one another 
+			to give up locks. Deadlock is said to be one of the most feared complications in DBMS as it brings the whole system to a Halt. 
+
+Deadlock Avoidance – 
+		When a database is stuck in a deadlock, It is always better to avoid the deadlock rather than restarting or aborting the database. 
+		The deadlock avoidance method is suitable for smaller databases whereas the deadlock prevention method is suitable for larger databases
+
+Deadlock Detection – 
+			When a transaction waits indefinitely to obtain a lock, The database management system should detect whether the transaction is involved
+			 in a 
+			deadlock or not. 
+
+	Wait-for-graph is one of the methods for detecting the deadlock situation
+
+Deadlock prevention – 
+		Timestamping 
+		Wait-Die Scheme – 
+	In this scheme, If a transaction requests a resource that is locked by another transaction, then the DBMS simply checks the timestamp of both 
+	transactions and allows the older transaction to wait until the resource is available for execution. 
+
+Wound Wait Scheme – 
+	In this scheme, if an older transaction requests for a resource held by a younger transaction, then an older transaction forces a younger transaction 
+	to kill the transaction and release the resource
+
+
+
+What is Cursor in SQL ?
+
+
+
+
+
+
+
